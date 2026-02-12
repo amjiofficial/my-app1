@@ -559,7 +559,7 @@ function App() {
                             onClick={(e) => {
                               e.preventDefault()
                               if (isAuthenticated) {
-                                getUrl({ path: f.path ?? f.key })
+                                getUrl({ path: f.path })
                                   .then((fresh) => {
                                     const url = fresh?.url?.toString()
                                     if (url) {
