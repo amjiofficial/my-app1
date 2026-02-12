@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd my-media-app
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: my-media-app/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - my-media-app/node_modules/**/*
