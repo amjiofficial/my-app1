@@ -8,8 +8,6 @@ frontend:
     build:
       commands:
         - npm run build
-        - echo "Build completed, checking dist folder..."
-        - ls -la dist || dir dist
   artifacts:
     baseDirectory: dist
     files:
