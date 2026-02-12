@@ -8,11 +8,6 @@ frontend:
     build:
       commands:
         - npm run build
-        - echo "Build completed successfully"
-        - echo "Checking dist folder contents:"
-        - ls -la dist/ || dir dist
-        - echo "Verifying index.html exists:"
-        - test -f dist/index.html && echo "index.html found" || echo "index.html NOT found"
   artifacts:
     baseDirectory: my-media-app/dist
     files:
