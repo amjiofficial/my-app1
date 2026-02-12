@@ -1,0 +1,16 @@
+{
+  "resourceName": "mediaStorage",
+  "policyUUID": "f3ce6075",
+  "bucketName": "jan-media-dev-2026",
+  "storageAccess": "auth",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

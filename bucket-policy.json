@@ -1,0 +1,16 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowUnauthRoleS3GetObjectOnUploads",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::707925622438:role/amplify-mediaupload-dev-47cb2-unauthRole"
+      },
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::jan-media-dev-2026*47cb2-dev/uploads/*"
+    }
+  ]
+}
