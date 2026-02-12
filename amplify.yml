@@ -3,10 +3,11 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci --prefix my-media-app
+        - cd my-media-app
+        - npm ci
     build:
       commands:
-        - npm run build --prefix my-media-app
+        - npm run build
   artifacts:
     baseDirectory: my-media-app/dist
     files:
