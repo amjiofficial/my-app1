@@ -8,8 +8,11 @@ frontend:
     build:
       commands:
         - npm run build
+        - echo "Verifying build output..."
+        - ls -la dist/ || dir dist
+        - echo "Build verification complete"
   artifacts:
-    baseDirectory: dist
+    baseDirectory: my-media-app/dist
     files:
       - '**/*'
   cache:
