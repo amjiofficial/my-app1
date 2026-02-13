@@ -9,20 +9,18 @@ frontend:
           # Generate aws-exports.js if it doesn't exist
           if [ ! -f src/aws-exports.js ]; then
             echo "Generating aws-exports.js..."
-            cat > src/aws-exports.js << 'EOF'
-          const awsmobile = {
-              "aws_project_region": "us-east-1",
-              "aws_cognito_identity_pool_id": "us-east-1:c8bcb438-8dfc-48fb-8b31-f35ad3beb8e8",
-              "aws_cognito_region": "us-east-1",
-              "aws_user_pools_id": "us-east-1_39vz8I2km",
-              "aws_user_pools_web_client_id": "mediaclient123456789",
-              "oauth": {},
-              "aws_storage_s3_bucket": "jan-media-dev-2026",
-              "aws_storage_s3_region": "us-east-1"
-          };
-          
-          export default awsmobile;
-          EOF
+            echo 'const awsmobile = {' > src/aws-exports.js
+            echo '    "aws_project_region": "us-east-1",' >> src/aws-exports.js
+            echo '    "aws_cognito_identity_pool_id": "us-east-1:c8bcb438-8dfc-48fb-8b31-f35ad3beb8e8",' >> src/aws-exports.js
+            echo '    "aws_cognito_region": "us-east-1",' >> src/aws-exports.js
+            echo '    "aws_user_pools_id": "us-east-1_39vz8I2km",' >> src/aws-exports.js
+            echo '    "aws_user_pools_web_client_id": "mediaclient123456789",' >> src/aws-exports.js
+            echo '    "oauth": {},' >> src/aws-exports.js
+            echo '    "aws_storage_s3_bucket": "jan-media-dev-2026",' >> src/aws-exports.js
+            echo '    "aws_storage_s3_region": "us-east-1"' >> src/aws-exports.js
+            echo '};' >> src/aws-exports.js
+            echo '' >> src/aws-exports.js
+            echo 'export default awsmobile;' >> src/aws-exports.js
             echo "aws-exports.js generated successfully"
           else
             echo "aws-exports.js already exists"
