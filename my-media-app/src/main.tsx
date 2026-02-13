@@ -9,9 +9,9 @@ import './index.css'
 const bucketName = awsExports.aws_storage_s3_bucket || 'jan-media-dev-2026'
 const region = awsExports.aws_storage_s3_region || awsExports.aws_project_region || 'us-east-1'
 
-// Configure Amplify with explicit Storage configuration for Amplify v6
-// Using resources format to match Gen 1 backend resource name "mediaStorage"
-const amplifyConfig = {
+// Configure Amplify with Storage for Amplify v6
+// For Gen 1 backend, we need to use the resources format with the resource name
+const amplifyConfig: any = {
   ...awsExports,
   Storage: {
     S3: {
@@ -19,7 +19,7 @@ const amplifyConfig = {
       region: region,
     },
   },
-  // Add resources format for Gen 1 backend compatibility
+  // Add resources format for Gen 1 backend - this matches the backend resource name
   resources: {
     storage: {
       mediaStorage: {
@@ -36,8 +36,9 @@ Amplify.configure(amplifyConfig)
 console.log('Amplify configured with Storage:', {
   bucket: bucketName,
   region: region,
-  hasStorageConfig: !!amplifyConfig.Storage,
-  hasResources: !!amplifyConfig.resources,
+  storageConfig: amplifyConfig.Storage,
+  resourcesConfig: amplifyConfig.resources?.storage?.mediaStorage,
+  awsExportsBucket: awsExports.aws_storage_s3_bucket,
 })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
