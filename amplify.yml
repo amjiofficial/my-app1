@@ -9,7 +9,7 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: my-media-app/dist
+    baseDirectory: dist
     files:
       - '**/*'
   cache:
