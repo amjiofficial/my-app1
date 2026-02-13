@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { uploadData, getUrl, list } from "@aws-amplify/storage"
 import { signIn, fetchAuthSession, signOut as amplifySignOut } from "@aws-amplify/auth"
-import awsExports from "./aws-exports"
 
 function App() {
   const [file, setFile] = useState<File | null>(null)
@@ -98,15 +97,9 @@ function App() {
       const uploadPath = `uploads/${Date.now()}-${file.name}`
       console.log("Uploading to path:", uploadPath)
 
-      // Get bucket name from config
-      const bucketName = awsExports.aws_storage_s3_bucket || 'jan-media-dev-2026'
-      
       const result = await uploadData({
         path: uploadPath,
         data: file,
-        options: {
-          bucket: bucketName,
-        },
       }).result
 
       console.log("Upload result:", result)
