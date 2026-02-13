@@ -9,23 +9,20 @@ frontend:
           node -e "
           const fs = require('fs');
           const path = 'src/aws-exports.js';
-          if (!fs.existsSync(path)) {
-            const config = {
-              aws_project_region: 'us-east-1',
-              aws_cognito_identity_pool_id: 'us-east-1:c8bcb438-8dfc-48fb-8b31-f35ad3beb8e8',
-              aws_cognito_region: 'us-east-1',
-              aws_user_pools_id: 'us-east-1_39vz8I2km',
-              aws_user_pools_web_client_id: 'mediaclient123456789',
-              oauth: {},
-              aws_storage_s3_bucket: 'jan-media-dev-2026',
-              aws_storage_s3_region: 'us-east-1'
-            };
-            const content = 'const awsmobile = ' + JSON.stringify(config, null, 2) + ';\n\nexport default awsmobile;';
-            fs.writeFileSync(path, content);
-            console.log('aws-exports.js generated successfully');
-          } else {
-            console.log('aws-exports.js already exists');
-          }
+          // Always regenerate to ensure latest config
+          const config = {
+            aws_project_region: 'us-east-1',
+            aws_cognito_identity_pool_id: 'us-east-1:c8bcb438-8dfc-48fb-8b31-f35ad3beb8e8',
+            aws_cognito_region: 'us-east-1',
+            aws_user_pools_id: 'us-east-1_39vz8I2km',
+            aws_user_pools_web_client_id: 'mediaclient123456789',
+            oauth: {},
+            aws_storage_s3_bucket: 'jan-media-dev-2026',
+            aws_storage_s3_region: 'us-east-1'
+          };
+          const content = 'const awsmobile = ' + JSON.stringify(config, null, 2) + ';\n\nexport default awsmobile;';
+          fs.writeFileSync(path, content);
+          console.log('aws-exports.js generated successfully with Storage config');
           "
     build:
       commands:
