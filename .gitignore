@@ -9,6 +9,7 @@ amplify/backend/.temp
 build/
 dist/
 node_modules/
+*.tsbuildinfo
 # Allow aws-exports.js in my-media-app/src for Amplify Hosting
 !my-media-app/src/aws-exports.js
 aws-exports.js
